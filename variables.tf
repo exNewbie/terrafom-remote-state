@@ -7,7 +7,6 @@ terraform {
   }
 }
 
-
 ### Variables ###
 variable "workspace_iam_roles" {
   type = "map"
