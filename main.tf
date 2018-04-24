@@ -1,3 +1,7 @@
+locals {
+  workspace = "${terraform.workspace == "production" ? "" : "default"}"
+}
+
 # Staging uses AWS credentials
 # Production uses IAM role
 provider aws {
@@ -16,4 +20,5 @@ module "remote_state" {
   s3_bucket            = "${var.s3_bucket}"
   dynamodb_state_table = "${var.dynamodb_state_table}"
   s3_key               = "${var.s3_key}"
+  s3_bucket_created    = "${local.s3_bucket_created}"
 }

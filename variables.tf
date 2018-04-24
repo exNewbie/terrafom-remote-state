@@ -27,3 +27,16 @@ variable "aws_region" {
 variable "dynamodb_state_table" {
   type = "string"
 }
+
+
+### Data ###
+
+data "aws_s3_bucket" "s3_bucket" {
+  bucket = "${var.s3_bucket}"
+}
+
+### Locals ###
+
+locals {
+  s3_bucket_created = "${data.aws_s3_bucket.s3_bucket.id == "" ? 1 : 0}"
+}

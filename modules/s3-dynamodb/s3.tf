@@ -1,4 +1,5 @@
 resource "aws_s3_bucket" "terraform-state-storage-s3" {
+  count  = "${var.s3_bucket_created}"
   bucket = "${var.s3_bucket}"
 
   versioning {

@@ -1,0 +1,10 @@
+s3_bucket = "terraform-state"
+s3_key = "base/terraform.tfstate"
+aws_region = "ap-southeast-2"
+dynamodb_state_table = "terraform-state-lock"
+
+workspace_iam_roles = {
+    staging    = "arn:aws:iam::324xxxxxx088:role/AssumeAdministratorAccess"
+    production = "arn:aws:iam::324xxxxxx088:role/AssumeAdministratorAccess"
+}
+
